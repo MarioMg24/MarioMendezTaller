@@ -21,6 +21,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
@@ -35,7 +45,7 @@ fun HomeScreen(navController: NavController) {
                 onClick = { navController.navigate("add") }
             ) {
                 Icon(
-                    imageVector = Icons.Default.Add,
+                    imageVector = Icons.Default.PlayArrow,
                     contentDescription = "Go to add Screen",
                     tint = Color.White
                 )
@@ -46,7 +56,18 @@ fun HomeScreen(navController: NavController) {
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Black
                 ),
-                title = { Text("10 Mejores Cantantes", color = Color.White) }
+                title = { Text("Top Cantantes", color = Color.White) },
+                navigationIcon = {
+                    IconButton(onClick = {
+                        navController.popBackStack()
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Menu,
+                            contentDescription = "Go back",
+                            tint = Color.White
+                        )
+                    }
+                }
             )
         }
     ) { paddingValues ->
@@ -57,18 +78,19 @@ fun HomeScreen(navController: NavController) {
                 .fillMaxSize()
         ) {
             Column {
-                ItemContact("Luis Miguel" )
-                ItemContact("Cristian Castro" )
-                ItemContact("Luis Fonsi" )
-                ItemContact("David Bisbal" )
-                ItemContact("Alejandro Fernandez" )
-                ItemContact("Jose Jose" )
-                ItemContact("Juan Gabriel" )
-                ItemContact("Vicente Fernandez" )
-                ItemContact("Carlos Rivera" )
-                ItemContact("Mario Mendez" )
+                ItemContact("Luis Miguel= El 'Sol de México', reconocido por su potente voz.")
+                ItemContact("Cristian Castro= Cantante icónico conocido 'Por amarte así'." )
+                ItemContact("Luis Fonsi= Famoso por el éxito global 'Despacito'." )
+                ItemContact("David Bisbal= Artista español con una energía única." )
+                ItemContact("Alejandro Fernandez= El 'Potrillo'." )
+                ItemContact("Jose Jose= Conocido como 'El Príncipe de la Canción'." )
+                ItemContact("Juan Gabriel= Cantautor icónico." )
+                ItemContact("Vicente Fernandez= Icono de la música ranchera mexicana." )
+                ItemContact("Carlos Rivera= Talentoso cantante mexicano ." )
+                ItemContact("Mario Mendez= Nueva promesa de la música." )
             }
         }
     }
 }
+
 

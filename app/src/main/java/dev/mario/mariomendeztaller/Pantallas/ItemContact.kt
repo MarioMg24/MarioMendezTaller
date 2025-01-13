@@ -20,7 +20,7 @@ fun ItemContact(name: String){
         modifier = Modifier.padding(16.dp)
     ) {
         Text(text = name,
-            fontSize = 24.sp,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
             color = Color.Black
         )
